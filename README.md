@@ -1,2 +1,0 @@
-Game:
-"# rock-paper-scissors"
