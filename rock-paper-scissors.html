@@ -7,9 +7,11 @@
 
 	<script type="text/javascript">
 
-		const playerChoice = prompt("Choose one of the: Rock, Paper, Scissors");
-		const computerChoice = computerPlay();
-		console.log(playRound(playerChoice, computerChoice));
+		//const playerChoice = prompt("Choose one of the: Rock, Paper, Scissors");
+		//const computerChoice = computerPlay();
+		//console.log(playRound(playerChoice, computerChoice));
+
+		var playResultFlag = false;
 
 		function computerPlay(){
 			var comMoves = ['Rock', 'Paper', 'Scissors'];
@@ -34,17 +36,29 @@
 		    }else{
 
 		    if (playerSelection.toLowerCase() == "rock" && computerSelection.toLowerCase() == "scissors") {
+		    	playResultFlag = true;
 		    	return roundChoice = "You Won! Rock beat Scissors";
+
 		    }else if(playerSelection.toLowerCase() == "paper" && computerSelection.toLowerCase() == "scissors"){
+		    	playResultFlag = false;
 		    	return roundChoice = "You Lose! Scissors beat Paper";
+
 		    }else if(playerSelection.toLowerCase() == "paper" && computerSelection.toLowerCase() == "rock"){
+		    	playResultFlag = true;
 		    	return roundChoice = "You Won! Paper beat Rock";
+
 		    }else if(playerSelection.toLowerCase() == "rock" && computerSelection.toLowerCase() == "paper"){
+		    	playResultFlag = false;
 		    	return roundChoice = "You Lose! Paper beat rock";
+
 		    }else if(playerSelection.toLowerCase() == "scissors" && computerSelection.toLowerCase() == "paper"){
+		    	playResultFlag = true;
 		    	return roundChoice = "You Won! Scissors beat Paper";
+
 		    }else if(playerSelection.toLowerCase() == "scissors" && computerSelection.toLowerCase() == "rock"){
+		    	playResultFlag = false;
 		    	return roundChoice = "You Lose! Rock beat Scissors";
+		    	
 		    }else{
 		    	if ((playerSelection.toLowerCase() == computerSelection.toLowerCase()) && 
 		    		(playerSelection != '' && computerSelection != '')) {
@@ -57,6 +71,34 @@
 		 }
 
 		 function game(){
+		 	var round = 5;
+		 	var playerWins = 0;
+		 	var compWins = 0;
+		 	var roundResult = '';
+		 	var overallResult = '';
+
+		 	for (var i = 0; i < round; i++) {
+		 		var playerChoice = prompt("Choose one of the: Rock, Paper, Scissors");
+		        var computerChoice = computerPlay();
+		 		roundResult = playRound(playerChoice, computerChoice)
+		 		console.log(roundResult);
+		 		if (playResultFlag == true) {
+		 			playerWins++;
+		 		}else if (playResultFlag == false){
+		 			compWins++;
+		 		}
+		 	}
+
+		 	if (playerWins > compWins) {
+		 		overallResult = "You Won";
+		 		console.log(overallResult);
+		 	}else if (compWins > playerWins){
+		 		overallResult = "You Lose";
+		 		console.log(overallResult);
+		 	}else{
+		 		overallResult = "It's a draw";
+		 		console.log(overallResult);
+		 	}
 
 		 }
 
