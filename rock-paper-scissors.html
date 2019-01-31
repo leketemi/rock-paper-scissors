@@ -6,7 +6,37 @@
 <body>
 
 	<script type="text/javascript">
-		
+		function computerPlay(){
+			var comMoves = ['Rock', 'Paper', 'Scissors'];
+			return comMoves[random(comMoves.length)];
+		}
+
+		/*function random(rand){
+
+			return Math.random(rand);
+		}*/
+
+		function random(number) {
+		  return Math.floor(Math.random()*number);
+		}
+
+		 function playRound(playerSelection, computerSelection) { 
+		    // your code here! 
+		    var roundChoice = '';
+		    if (playerSelection == 'Rock' && computerSelection == 'Scissors') {
+		    	return roundChoice = "You won! Rock beat Scissors";
+		    }else if(playerSelection == 'Paper' && computerSelection == 'Scissors'){
+		    	return roundChoice = "You Lose! Scissors beat Paper";
+		    }else if(playerSelection == 'Paper' && computerSelection == 'Rock'){
+		    	return roundChoice = "You won! Paper beat Rock";
+		    }
+		 }
+
+		 function game(){
+
+		 }
+
+
 	</script>
 
 </body>
