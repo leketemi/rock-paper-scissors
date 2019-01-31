@@ -6,20 +6,12 @@
 <body>
 
 	<script type="text/javascript">
-
-		console.log(game());
-
 		var playResultFlag = false;
 
 		function computerPlay(){
 			var comMoves = ['Rock', 'Paper', 'Scissors'];
 			return comMoves[random(comMoves.length)];
 		}
-
-		/*function random(rand){
-
-			return Math.random(rand);
-		}*/
 
 		function random(number) {
 		  return Math.floor(Math.random()*number);
@@ -99,6 +91,8 @@
 		 	}
 
 		 }
+		
+		console.log(game());
 
 	</script>
 
