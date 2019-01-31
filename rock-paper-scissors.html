@@ -6,6 +6,11 @@
 <body>
 
 	<script type="text/javascript">
+
+		const playerChoice = prompt("Choose one of the: Rock, Paper, Scissors");
+		const computerChoice = computerPlay();
+		console.log(playRound(playerChoice, computerChoice));
+
 		function computerPlay(){
 			var comMoves = ['Rock', 'Paper', 'Scissors'];
 			return comMoves[random(comMoves.length)];
@@ -21,21 +26,39 @@
 		}
 
 		 function playRound(playerSelection, computerSelection) { 
-		    // your code here! 
+		    // your code here!
 		    var roundChoice = '';
-		    if (playerSelection == 'Rock' && computerSelection == 'Scissors') {
-		    	return roundChoice = "You won! Rock beat Scissors";
-		    }else if(playerSelection == 'Paper' && computerSelection == 'Scissors'){
+
+		    if (playerSelection == null){
+		    		return roundChoice = "Please input any of the options.";
+		    }else{
+
+		    if (playerSelection.toLowerCase() == "rock" && computerSelection.toLowerCase() == "scissors") {
+		    	return roundChoice = "You Won! Rock beat Scissors";
+		    }else if(playerSelection.toLowerCase() == "paper" && computerSelection.toLowerCase() == "scissors"){
 		    	return roundChoice = "You Lose! Scissors beat Paper";
-		    }else if(playerSelection == 'Paper' && computerSelection == 'Rock'){
-		    	return roundChoice = "You won! Paper beat Rock";
+		    }else if(playerSelection.toLowerCase() == "paper" && computerSelection.toLowerCase() == "rock"){
+		    	return roundChoice = "You Won! Paper beat Rock";
+		    }else if(playerSelection.toLowerCase() == "rock" && computerSelection.toLowerCase() == "paper"){
+		    	return roundChoice = "You Lose! Paper beat rock";
+		    }else if(playerSelection.toLowerCase() == "scissors" && computerSelection.toLowerCase() == "paper"){
+		    	return roundChoice = "You Won! Scissors beat Paper";
+		    }else if(playerSelection.toLowerCase() == "scissors" && computerSelection.toLowerCase() == "rock"){
+		    	return roundChoice = "You Lose! Rock beat Scissors";
+		    }else{
+		    	if ((playerSelection.toLowerCase() == computerSelection.toLowerCase()) && 
+		    		(playerSelection != '' && computerSelection != '')) {
+		    		return roundChoice = "It's a draw";
+		    	}else if (playerSelection != null && computerSelection != null){
+		    		return roundChoice = "Please check your input";
+		    	}
 		    }
+		   }
 		 }
 
 		 function game(){
 
 		 }
-
 
 	</script>
 
